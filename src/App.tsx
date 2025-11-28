@@ -1,40 +1,41 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Sidebar from "./components/Sidebar";
-import Header from "./components/Header";
-// import RightSidebar from "./components/RightSidebar";
-import OverviewGuide from "./pages/Overview";
-import AdditionalResources from "./pages/AdditionalResources";
-import Footer from "./components/Footer";
+import Layout from "./components/Layout"; 
+
+// Import all page components
+import Pages from "./pages/pages"; 
+import ApiIntegrationPage from "./pages/integration/Api";
+import HostedIntegrationPage from "./pages/integration/Hosted";
+import OverviewGuide from "./pages/learn/Overview";
+import AdditionalResources from "./pages/learn/AdditionalResources";
+
 
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col">
-        {/* Header */}
-        <Header />
+      <Routes> 
+        
+        {/* Parent Route: Applies the persistent Header/Sidebar/Footer layout */}
+        <Route path="/" element={<Layout />}>
 
-        <div className="flex flex-1">
-          {/* Left Sidebar - Only show on large screens */}
-          <div className="hidden lg:block w-64 fixed pr-6 z-60">
-            <Sidebar />
-          </div>
-
-          {/* Main Content - Flexible width */}
-          <main className="flex-1 p-4 pt-20 pb-36 lg:pb-0">
-            <Routes>
-              <Route path="/overview" element={<OverviewGuide />} />
-              <Route path="/additional-resources" element={<AdditionalResources />} />
-            </Routes>
-            {/* Right Sidebar - Only show on extra large screens */}
+          {/* Child Routes render inside the <Outlet /> */}
+          <Route index element={<Pages />} /> 
           
-          </main>
-          <div className="lg:ml-50 px-4 sm:px-6 lg:px-8">
-            <Footer />
-          </div>
-
-        </div>
-      </div>
+          <Route path="integration/api" element={<ApiIntegrationPage />} />
+          <Route path="integration/hosted" element={<HostedIntegrationPage />} /> 
+          
+          <Route path="learn/overview" element={<OverviewGuide />} />
+          <Route path="learn/resources" element={<AdditionalResources />} />
+          
+          {/* Catch-all for 404 */}
+          <Route path="*" element={
+              <div className="text-center pt-20">
+                <h1 className="text-4xl text-red-500">404</h1>
+                <p>Page Not Found</p>
+              </div>
+            } 
+          />
+        </Route>
+      </Routes>
     </Router>
   );
 }

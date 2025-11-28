@@ -2,7 +2,7 @@ import React from "react";
 
 export default function OverviewGuide() {
   return (
-    <main className="flex flex-col px-4 sm:px-6 lg:px-8  lg:pt-14 pb-40 lg:pb-12 transition-all duration-300 ease-in-out lg:ml-64">
+    <main className="flex flex-col px-4 sm:px-6   lg:pt-14 pb-40 lg:pb-12 transition-all duration-300 ease-in-out">
       <article className="w-full max-w-3xl mx-auto space-y-8 text-gray-800">
         <header className="space-y-4 text-center sm:text-left">
           <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 leading-snug">

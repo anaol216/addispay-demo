@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Home() {
+function Hosted() {
   return (
     <div>
-        Home Page
+      
     </div>
   )
 }
 
-export default Home
+export default Hosted

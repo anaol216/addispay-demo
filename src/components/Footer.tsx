@@ -103,6 +103,7 @@ export default function Footer() {
   return (
     <>
       {/* Desktop right sidebar */}
+      <div className="lg:ml-50 px-4 sm:px-6 lg:px-8">
       <aside className="hidden lg:flex fixed right-4 top-1/2 -translate-y-1/2 w-64  py-10 px-6 z-30">
         <SidebarContent />
       </aside>
@@ -117,6 +118,7 @@ export default function Footer() {
       >
         <SidebarContent />
       </footer>
+      </div>
     </>
   );
 }

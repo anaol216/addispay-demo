@@ -5,15 +5,15 @@ const SIDEBAR_SECTIONS = [
   {
     section: "Learn",
     links: [
-      { label: "Overview", to: "/overview" },
-      { label: "Getting Started", to: "/getting-started" },
-      { label: "Additional Resources", to: "/additional-resources" },
+      { label: "Overview", to: "learn/overview" },
+      { label: "Getting Started", to: "learn/getting-started" },
+      { label: "Additional Resources", to: "learn/resources" },
     ],
   },
   {
     section: "Integration Guide",
     links: [
-      { label: "Direct Api Integration", to: "/direct-api-integration" },
+      { label: "Direct Api Integration", to: "/integration/api" },
       { label: "SDK Integrations", to: "/sdk-integrations" },
       { label: "Errors Codes", to: "/errors-codes" },
       { label: "Go Live", to: "/go-live" },
@@ -29,11 +29,12 @@ export default function Sidebar() {
   return (
     <>
       {/* Toggle button visible on mobile & tablets */}
-      <div className="lg:hidden fixed top-4 left-4 z-60">
-        <button onClick={toggleSidebar}>
-          <img src="/logo.png" alt="AddisPay Logo" className="w-32" />
-        </button>
-      </div>
+      <div className="hidden lg:block w-64 fixed pr-6 z-60 ">
+        <div className="lg:hidden fixed top-4 left-4 z-60 flex-col overflow-y-auto">
+          <button onClick={toggleSidebar}>
+            <img src="/logo.png" alt="AddisPay Logo" className="w-32" />
+          </button>
+        </div>
 
       {/* Sidebar */}
       <aside
@@ -43,11 +44,11 @@ export default function Sidebar() {
       >
         <div className="flex flex-col h-full overflow-y-auto">
           {/* Logo (hidden when sidebar toggle is active) */}
-          <img
-            src="/logo.png"
-            alt="AddisPay Logo"
-            className="w-40 mb-10 hidden lg:block "
-          />
+          <div className="fixed top-4 left-4 z-60 flex-col overflow-y-auto">
+            <button onClick={toggleSidebar}>
+              <img src="/logo.png" alt="AddisPay Logo" className="lg:block w-32" />
+            </button>
+          </div>
 
           <nav className="flex flex-col space-y-12 ml-4 mt-6">
             {SIDEBAR_SECTIONS.map(({ section, links }) => (
@@ -101,6 +102,7 @@ export default function Sidebar() {
           onClick={() => setIsOpen(false)}
         />
       )}
+      </div>
     </>
   );
 }

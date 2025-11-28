@@ -4,8 +4,8 @@ import React from "react";
 
 export default function AdditionalResources() {
   return (
-    <section id="additional-resources" className="py-8 px-8 lg:ml-64">
-      <div className="max-w-4xl mx-auto">
+    <section id="additional-resources" className="py-8 px-8 lg:px-6">
+      <div className="max-w-3xl mx-auto">
         <h2 className="text-3xl font-bold text-[#239165] mb-6 tracking-tight">
           Additional Resources
         </h2>
