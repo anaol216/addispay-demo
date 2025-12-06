@@ -8,11 +8,28 @@ interface HeaderProps {
 }
 
 export default function Header({ onToggleSidebar }: HeaderProps) {
-
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 h-18 flex items-center justify-between px-4 sm:px-4 bg-[#f9fafb] z-50">
-        {/* Logo: visible only on small & medium screens */}
+      <header className="fixed top-0 left-0 right-0 h-18 flex items-center justify-between px-4 sm:px-4 bg-[#f9fafb] z-40">
+        {/* Menu Icon and Logo for mobile - Now visible on small screens */}
+        <div className="flex items-center space-x-3 lg:hidden">
+          <MenuRoundedIcon 
+            className="text-gray-700 cursor-pointer hover:text-[#239165]" 
+            onClick={onToggleSidebar}
+          />
+          <a href="https://addispay.et/">
+            <img src="/logo2.png" alt="AddisPay" className="h-8" />
+          </a>
+        </div>
+        
+        {/* Menu Icon only for desktop */}
+        <div className="hidden lg:flex items-center">
+          <MenuRoundedIcon 
+            className="text-gray-700 cursor-pointer hover:text-[#239165]" 
+            onClick={onToggleSidebar}
+          />
+        </div>
+        
         {/* Icons aligned right */}
         <div className="flex flex-grow flex-1 justify-end items-center space-x-6 text-gray-700">
           {/* Search Icon */}
@@ -23,11 +40,6 @@ export default function Header({ onToggleSidebar }: HeaderProps) {
           {/* Dark/Light Mode Toggle */}
           <AiFillSun className="cursor-pointer"/>
           <CiDark className="cursor-pointer hidden"/>
-          {/* Menu Icon - Toggle Sidebar on Mobile */}
-            <MenuRoundedIcon 
-              className="lg:hidden text-green text-center cursor-pointer" 
-              onClick={onToggleSidebar}
-            />
         </div>
       </header>
     </>

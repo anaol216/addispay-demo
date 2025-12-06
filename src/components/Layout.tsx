@@ -1,28 +1,45 @@
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import Header from './Header'; // Assumes Header component exists
-import Sidebar from './Sidebar'; // Assumes Sidebar component exists
-import Footer from './Footer'; // Assumes Footer component exists
+import Header from './Header';
+import Sidebar from './Sidebar';
+import Footer from './Footer';
 
 export default function Layout() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Mobile: show/hide
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false); // Desktop: full/mini
+
+  const handleToggleSidebar = () => {
+    // On mobile: toggle open/close
+    // On desktop: toggle collapsed/expanded
+    setIsSidebarOpen(!isSidebarOpen);
+    setIsSidebarCollapsed(!isSidebarCollapsed);
+  };
 
   return (
     <div className="h-screen flex flex-col overflow-hidden">
-      {/* Header */}
-      <Header onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)} />
+      {/* Left Sidebar - Fixed, extends to top */}
+      <Sidebar 
+        isOpen={isSidebarOpen} 
+        setIsOpen={setIsSidebarOpen}
+        isCollapsed={isSidebarCollapsed}
+      />
       
-      <div className="flex flex-1 overflow-hidden">
-        {/* Left Sidebar */}
-          <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
-        {/* Main Content Area - This is where your page content goes */}
-        <main className="flex-1 pt-20 overflow-y-auto"> 
-          <div className="rounded-lg min-h-[80vh]">
-            <Outlet /> {/* Renders the current page component */}
-          </div>
-        </main>
-        {/* Footer (Right Sidebar) */}
-        <Footer />
+      {/* Main content wrapper with margin for fixed sidebar */}
+      <div className={`flex flex-col flex-1 overflow-hidden transition-all duration-300 ${isSidebarCollapsed ? 'lg:ml-20' : 'lg:ml-64'}`}>
+        {/* Header */}
+        <Header onToggleSidebar={handleToggleSidebar} />
+        
+        <div className="flex flex-1 overflow-hidden">
+          {/* Main Content Area */}
+          <main className="flex-1 pt-20 overflow-y-auto"> 
+            <div className="rounded-lg min-h-[80vh]">
+              <Outlet />
+            </div>
+          </main>
+          
+          {/* Footer (Right Sidebar) */}
+          <Footer />
+        </div>
       </div>
     </div>
   );
