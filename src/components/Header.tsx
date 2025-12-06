@@ -5,9 +5,11 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 
 interface HeaderProps {
   onToggleSidebar: () => void;
+  onToggleTheme: () => void;
+  isDarkMode: boolean;
 }
 
-export default function Header({ onToggleSidebar }: HeaderProps) {
+export default function Header({ onToggleSidebar, onToggleTheme, isDarkMode }: HeaderProps) {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 h-18 flex items-center justify-between px-4 sm:px-4 bg-[#f9fafb] z-40">
@@ -38,8 +40,11 @@ export default function Header({ onToggleSidebar }: HeaderProps) {
             <LuSearch className="cursor-pointer ml-2" />
           </div>
           {/* Dark/Light Mode Toggle */}
-          <AiFillSun className="cursor-pointer"/>
-          <CiDark className="cursor-pointer hidden"/>
+          {isDarkMode ? (
+            <AiFillSun className="cursor-pointer" onClick={onToggleTheme} title="Switch to Light Mode"/>
+          ) : (
+            <CiDark className="cursor-pointer" onClick={onToggleTheme} title="Switch to Dark Mode"/>
+          )}
         </div>
       </header>
     </>

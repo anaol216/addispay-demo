@@ -40,9 +40,9 @@ interface SidebarProps {
 export default function Sidebar({ isOpen, setIsOpen, isCollapsed }: SidebarProps) {
   return (
     <>
-      {/* Desktop Sidebar - Fixed, extends to top with logo */}
+      {/* Desktop Sidebar - Fixed, with FAQ at bottom */}
       <div className={`
-        hidden lg:block bg-white shadow-lg h-screen fixed top-0 left-0 transition-all duration-300 z-50 flex flex-col
+        hidden lg:flex lg:flex-col bg-white shadow-lg h-screen fixed top-0 left-0 transition-all duration-300 z-50
         ${isCollapsed ? 'w-20' : 'w-64'}
       `}>
          {/* Logo at the very top */}
@@ -61,7 +61,7 @@ export default function Sidebar({ isOpen, setIsOpen, isCollapsed }: SidebarProps
            <SidebarContent onLinkClick={() => {}} isCollapsed={isCollapsed} />
          </div>
          
-         {/* FAQ at the absolute bottom */}
+         {/* FAQ fixed at the bottom for desktop */}
          <div className={`border-t border-gray-200 ${isCollapsed ? 'p-4 text-center' : 'p-6'}`}>
            <Link
              to="https://addispay.et/faq"
@@ -73,31 +73,31 @@ export default function Sidebar({ isOpen, setIsOpen, isCollapsed }: SidebarProps
          </div>
       </div>
 
-      {/* Mobile Sidebar (Off-canvas) */}
+      {/* Mobile Sidebar (Off-canvas) - FAQ at end of scroll */}
       <div 
         className={`fixed inset-y-0 left-0 transform ${isOpen ? "translate-x-0" : "-translate-x-full"} 
-        w-64 bg-white shadow-lg z-50 transition-transform duration-300 ease-in-out lg:hidden flex flex-col`}
+        w-64 bg-white shadow-lg z-50 transition-transform duration-300 ease-in-out lg:hidden`}
       >
-         <div className="p-4">
-            <a href="https://addispay.et/" className="block mb-8">
+         <div className="p-4 border-b border-gray-200">
+            <a href="https://addispay.et/" className="block">
               <img src="/logo.png" alt="AddisPay Logo" className="w-32" />
             </a>
          </div>
          
-         {/* Mobile content - scrollable */}
-         <div className="flex-1 overflow-y-auto px-4">
+         {/* Mobile content - scrollable, FAQ at the end */}
+         <div className="overflow-y-auto h-[calc(100vh-120px)] px-4 py-4">
            <SidebarContent onLinkClick={() => setIsOpen(false)} isCollapsed={false} />
-         </div>
-         
-         {/* FAQ at bottom for mobile */}
-         <div className="border-t border-gray-200 p-4">
-           <Link
-             to="https://addispay.et/faq"
-             className="text-sm font-semibold italic text-[#239165] hover:underline block"
-             onClick={() => setIsOpen(false)}
-           >
-             FAQ
-           </Link>
+           
+           {/* FAQ at the end of content for mobile */}
+           <div className="pt-6 border-t border-gray-200 mt-6">
+             <Link
+               to="https://addispay.et/faq"
+               className="text-sm font-semibold italic text-[#239165] hover:underline block"
+               onClick={() => setIsOpen(false)}
+             >
+               FAQ
+             </Link>
+           </div>
          </div>
       </div>
 
