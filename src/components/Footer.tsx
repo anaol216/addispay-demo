@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const SOCIAL_LINKS = [
   {
@@ -46,7 +46,7 @@ const FOOTER_LINKS = [
 
 function SidebarContent() {
   return (
-    <div className="flex flex-col items-center text-center w-full ">
+    <div className="flex flex-col items-center text-center w-full h-full justify-center">
       <h2 className="mb-3 text-xl font-bold text-gray-900">Developers Community</h2>
       <p className="mb-8 max-w-xs text-sm text-gray-600">
         Join our vibrant developer channels for support, collaboration, and updates.
@@ -103,8 +103,7 @@ export default function Footer() {
   return (
     <>
       {/* Desktop right sidebar */}
-      <div className="lg:ml-50 px-4 sm:px-6 lg:px-8">
-      <aside className="hidden lg:flex fixed right-4 top-1/2 -translate-y-1/2 w-64  py-10 px-6 z-30">
+      <aside className="hidden lg:flex w-64 py-10 px-6 z-30 shrink-0">
         <SidebarContent />
       </aside>
 
@@ -118,7 +117,6 @@ export default function Footer() {
       >
         <SidebarContent />
       </footer>
-      </div>
     </>
   );
 }

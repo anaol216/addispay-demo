@@ -13,3 +13,8 @@ export interface SidebarSection {
   section: string;
   links: SidebarLink[];
 }
+
+export interface codes{
+  language:string;
+  content:string[];
+}

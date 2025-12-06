@@ -1,9 +1,9 @@
-import React from 'react'
+import OverviewGuide from './learn/Overview'
 
 function Home() {
   return (
     <div>
-        Home Page
+      <OverviewGuide/>
     </div>
   )
 }
