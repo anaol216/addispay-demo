@@ -23,7 +23,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ code, language }) => {
   }, [code, language]); 
 
   return (
-    <pre className="rounded-b-md overflow-x-auto bg-gray-900 p-4">
+    <pre className="flex flex-col rounded-b-md overflow-x-auto bg-gray-900 p-4 items-center">
       <code ref={codeRef} className={`language-${language}`}>
         {code}
       </code>

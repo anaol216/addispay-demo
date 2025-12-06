@@ -1,25 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { SIDEBAR_SECTIONS } from "../constants/sidebarData";
 
-const SIDEBAR_SECTIONS = [
-  {
-    section: "Learn",
-    links: [
-      { label: "Overview", to: "learn/overview" },
-      { label: "Getting Started", to: "learn/getting-started" },
-      { label: "Additional Resources", to: "learn/resources" },
-    ],
-  },
-  {
-    section: "Integration Guide",
-    links: [
-      { label: "Direct Api Integration", to: "/integration/api" },
-      { label: "SDK Integrations", to: "/sdk-integrations" },
-      { label: "Errors Codes", to: "/errors-codes" },
-      { label: "Go Live", to: "/go-live" },
-    ],
-  },
-];
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,34 +11,30 @@ export default function Sidebar() {
   return (
     <>
       {/* Toggle button visible on mobile & tablets */}
-      <div className="hidden lg:block w-64 fixed pr-6 z-60 ">
-        <div className="lg:hidden fixed top-4 left-4 z-60 flex-col overflow-y-auto">
+      <div className="w-64 fixed pr-6 z-60 ">
+        <div className="fixed top-4 left-4 z-60 flex-col overflow-y-auto">
           <button onClick={toggleSidebar}>
+            <a href="https://addispay.et/">
             <img src="/logo.png" alt="AddisPay Logo" className="w-32" />
+            </a>
           </button>
         </div>
-
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-screen w-64 bg-white shadow-lg py-8 px-2 z-60 transition-transform duration-300 ${
+        className={`fixed top-0 lg:mt-4 left-0 h-screen w-64 bg-white shadow-lg py-8 px-2 z-60 transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } lg:translate-x-0 lg:static lg:block`}
       >
         <div className="flex flex-col h-full overflow-y-auto">
           {/* Logo (hidden when sidebar toggle is active) */}
-          <div className="fixed top-4 left-4 z-60 flex-col overflow-y-auto">
-            <button onClick={toggleSidebar}>
-              <img src="/logo.png" alt="AddisPay Logo" className="lg:block w-32" />
-            </button>
-          </div>
-
-          <nav className="flex flex-col space-y-12 ml-4 mt-6">
+          
+          <nav className="flex flex-col space-y-8 ml-4 mt-4">
             {SIDEBAR_SECTIONS.map(({ section, links }) => (
               <div key={section}>
-                <h2 className="text-lg font-semibold text-[#239165] mb-8">
+                <h2 className="text-lg font-semibold text-[#239165] mb-4">
                   {section}
                 </h2>
-                <div className="flex flex-col space-y-5 pl-6">
+                <div className="flex flex-col space-y-5 ">
                   {links.map(({ label, to }) => {
                     const isEmphasized =
                       label === "Overview" || label === "Integration Guide";
@@ -64,7 +42,7 @@ export default function Sidebar() {
                       <Link
                         key={label}
                         to={to}
-                        className={`text-gray-800 hover:text-white hover:bg-[#239165] rounded-lg px-3 py-1 transition-colors block ${
+                        className={`text-gray-800 hove:text-white focus:bg-[#239165] focus:transparent-0.5 focus:text-white active:text-white hover:bg-[#239165] rounded-lg px-3 py-1 transition-colors block ${
                           isEmphasized
                             ? "text-base font-semibold"
                             : "text-sm font-medium"
@@ -80,7 +58,7 @@ export default function Sidebar() {
             ))}
           </nav>
 
-          <div className="flex-grow" />
+          <div/>
 
           {/* FAQ footer link */}
           <div className="pl-6 pt-6 border-t border-gray-200 mt-8">

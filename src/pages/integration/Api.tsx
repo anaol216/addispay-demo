@@ -46,7 +46,7 @@ const baseUrl = "https://api.addispay.et/checkout-api/v1"; // for main
           <div className="mb-6 flex flex-col gap-4">
             <h1 className="font-bold text-3xl">Direct Api Integration</h1>
             <div>
-              <p className="text-gray-700">
+              <p className="sm:hidden flex flex-col text-gray-700">
                 Downlaod postman collection for easy and quick testing
               </p>
               <button className="mt-2 px-4 py-2 bg-[#239165] text-white rounded hover:bg-[#1e7c57] transition-colors">
@@ -59,7 +59,7 @@ const baseUrl = "https://api.addispay.et/checkout-api/v1"; // for main
                 You can get your API key from the merchant dashboard at <a href="https://uat.dashboard.addispay.et/Settings" className="text-blue-400 hover:text-blue-300">setting</a>. Please make sure to activate the API key before use.
             </p>
 
-            <div className='mt-4'>
+            <div className='mt-4 '>
                 <div className='flex justify-between rounded-t-md bg-gray-700 p-2'>
                     
                     {/* Language Buttons (as before) */}
@@ -79,7 +79,7 @@ const baseUrl = "https://api.addispay.et/checkout-api/v1"; // for main
                     </div>
 
                     {/* 4. The Copy Button with dynamic icon and style */}
-                    <button onClick={handleCopy} className={`transition-colors ${copyButtonClass}`}>
+                    <button onClick={handleCopy} className={`transition-colors ${copyButtonClass}`} >
                         <CopyIcon size={18} title={isCopied ? "Copied!" : "Copy code"} />
                     </button>
                 </div>
@@ -88,6 +88,7 @@ const baseUrl = "https://api.addispay.et/checkout-api/v1"; // for main
                 <CodeBlock 
                     code={codeExample} 
                     language="javascript" 
+                    
                 />
             </div>
         </div>
