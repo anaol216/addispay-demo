@@ -23,16 +23,16 @@ export default function Api() {
                 <div className="mb-6 flex flex-col gap-4">
                     <h1 className="font-bold text-3xl">Direct Api Integration</h1>
                     <div>
-                    <p className="sm:hidden flex flex-col text-gray-700">
+                    <p className="sm:hidden flex flex-col text-gray-200 dark:text-gray-600">
                         Downlaod postman collection for easy and quick testing
                     </p>
-                    <button className="mt-2 px-4 py-2 bg-[#239165] text-white rounded hover:bg-[#1e7c57] transition-colors">
+                    <button className="mt-2 px-4 py-2 bg-[#239165] text-white rounded hover:bg-[#1e7c57] transition-colors cursor-pointer">
                         Download
                     </button>
                     </div>
                 </div>
                 <h1 className="font-bold text-3xl">Prepare your constants</h1>
-                <p className="text-gray-700">
+                <p className="text-gray-200 dark:text-gray-600">
                     You can get your API key from the merchant dashboard at <a href="https://uat.dashboard.addispay.et/Settings" className="text-blue-400 hover:text-blue-300">setting</a>. Please make sure to activate the API key before use.
                 </p>
                 <div className='mt-4 '>
@@ -47,14 +47,14 @@ export default function Api() {
             </div>
             <div id="order" className='mt-4'>
                 <h1 className="font-bold text-3xl">Create an order to server</h1>
-                <p className="text-gray-700">
+                <p className="text-gray-200 dark:text-gray-600">
                     The initial step in the payment process involves creating an order. During this stage, you will need to provide details about your order, payer information, and URLs for payment actions. Once completed, you will receive a UUID, which is essential for proceeding to the next step of payment initiation.
                 </p>
                 <div className='mt-4 '>
                     {/* Use the CodeBlock component with integrated header */}
                     <CodeBlock 
                         code={orderCodeExample} 
-                        language={currentLanguage === 'node' ? 'javascript' : 'python'} 
+                        language={currentLanguage === 'node' ? 'json' : 'python'} 
                         currentLanguage={currentLanguage}
                         onLanguageChange={setCurrentLanguage}
                     />

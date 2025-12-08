@@ -3,7 +3,7 @@ import React from "react";
 export default function OverviewGuide() {
   return (
     <main className="flex flex-col px-4 sm:px-6   lg:pt-14 pb-40 lg:pb-12 transition-all duration-300 ease-in-out">
-      <article className="w-full max-w-3xl mx-auto space-y-8 text-gray-800">
+      <article className="w-full max-w-3xl mx-auto space-y-8 text-gray-600">
         <header className="space-y-4 text-center sm:text-left">
           <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 leading-snug">
             <span className="text-[#239165] font-black">Addis</span>
@@ -20,10 +20,10 @@ export default function OverviewGuide() {
         </header>
 
         <section className="space-y-4">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 text-center sm:text-left">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-800 text-center sm:text-left">
             Overview
           </h2>
-          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+          <p className="text-base sm:text-lg leading-relaxed text-gray-600">
             <strong>Addispay</strong> is a robust payment gateway solution that enables businesses 
             to accept online payments hassle-free. Integrating Addispay into your system 
             empowers you to securely process transactions, manage payments, and enhance your 
@@ -32,13 +32,13 @@ export default function OverviewGuide() {
         </section>
 
         <section className="space-y-4">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 text-center sm:text-left">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-800 text-center sm:text-left">
             Prerequisites
           </h2>
-          <p className="text-base sm:text-lg font-semibold text-gray-800">
+          <p className="text-base sm:text-lg font-semibold text-gray-600">
             Before you begin the integration process, ensure you have the following prerequisites in place:
           </p>
-          <ol className="list-decimal list-inside space-y-3 text-base sm:text-lg pl-4 text-gray-700">
+          <ol className="list-decimal list-inside space-y-3 text-base sm:text-lg pl-4 text-gray-600">
             <li>
               <strong>Access to the Addispay Dashboard or Account:</strong>{" "}
               You'll need login credentials to access your{" "}

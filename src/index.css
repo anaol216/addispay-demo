@@ -1,16 +1,52 @@
 @import "tailwindcss";
 
 @theme {
-  --font-family-sans: 'Geist', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-sans: "Geist", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
 }
 
-:root {
-  font-family: 'Geist', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-}
+@layer base {
+  :root {
+    --bg-color: #f9fafb;
+    --text-color: #111827;
+    --sidebar-bg: #ffffff;
+    --sidebar-border: #e5e7eb;
+    --font-family-sans: "Geist", system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", sans-serif;
+  }
 
-body {
-  background-color: #f9fafb;
-  font-family: 'Geist', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Manual dark mode override - highest priority */
+  :root.dark {
+    --bg-color: #111827;
+    --text-color: #f3f4f6;
+    --sidebar-bg: #1f2937;
+    --sidebar-border: #374151;
+  }
+
+  /* Manual light mode override - highest priority */
+  :root.light {
+    --bg-color: #f9fafb;
+    --text-color: #111827;
+    --sidebar-bg: #ffffff;
+    --sidebar-border: #e5e7eb;
+  }
+
+  /* System preference - only applies when no manual override */
+  @media (prefers-color-scheme: dark) {
+    :root:not(.light):not(.dark) {
+      --bg-color: #111827;
+      --text-color: #f3f4f6;
+      --sidebar-bg: #1f2937;
+      --sidebar-border: #374151;
+    }
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family-sans);
+    transition: background-color 0.3s, color 0.3s;
+  }
 }
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;

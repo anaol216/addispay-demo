@@ -60,7 +60,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
           {availableLanguages.map((lang) => (
             <button 
               key={lang}
-              className={`mr-2 px-3 py-1 text-sm font-semibold rounded-md transition-colors ${currentLanguage === lang ? 'bg-gray-800 text-white' : 'text-gray-400 hover:text-green-400'}`}
+              className={`mr-2 px-3 py-1 text-sm font-semibold cursor-pointer rounded-md transition-colors ${currentLanguage === lang ? 'bg-gray-800 text-white' : 'text-gray-400 hover:text-green-400'}`}
               onClick={() => onLanguageChange(lang)}
             >
               {lang}
@@ -68,7 +68,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
           ))}
         </div>
 
-        <button onClick={handleCopy} className={`transition-colors ${copyButtonClass}`} >
+        <button onClick={handleCopy} className={`transition-colors ${copyButtonClass} cursor-pointer`} >
             <CopyIcon size={18} title={isCopied ? "Copied!" : "Copy code"} />
         </button>
       </div>

@@ -7,6 +7,7 @@ import ApiIntegrationPage from "./pages/integration/Api";
 import HostedIntegrationPage from "./pages/integration/Hosted";
 import OverviewGuide from "./pages/learn/Overview";
 import AdditionalResources from "./pages/learn/AdditionalResources";
+import Search from "./pages/Search";
 
 
 export default function App() {
@@ -25,6 +26,8 @@ export default function App() {
           
           <Route path="learn/overview" element={<OverviewGuide />} />
           <Route path="learn/resources" element={<AdditionalResources />} />
+          
+          <Route path="search" element={<Search />} />
           
           {/* Catch-all for 404 */}
           <Route path="*" element={

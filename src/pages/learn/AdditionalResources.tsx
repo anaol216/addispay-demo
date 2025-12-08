@@ -1,7 +1,3 @@
-// src/sections/AdditionalResources.tsx
-
-import React from "react";
-
 export default function AdditionalResources() {
   return (
     <section id="additional-resources" className="py-8 px-8 lg:px-6">
@@ -15,8 +11,8 @@ export default function AdditionalResources() {
 
         <div className="space-y-6">
           <div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2"> AddisPay Documentation</h3>
-            <p className="text-gray-700 leading-relaxed">
+            <h3 className="text-xl font-semibold text-gray-600 mb-2"> AddisPay Documentation</h3>
+            <p className="text-gray-600 leading-relaxed">
               Access our comprehensive documentation, including API references and SDKs, to support your integration
               and explore the full capabilities of the AddisPay platform.
             </p>
@@ -31,11 +27,11 @@ export default function AdditionalResources() {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2"> Support</h3>
-            <p className="text-gray-700 leading-relaxed">
+            <h3 className="text-xl font-semibold text-gray-600 mb-2"> Support</h3>
+            <p className="text-gray-600 leading-relaxed">
               Encountering issues or need assistance? Our dedicated support team is ready to help you ensure a smooth and successful integration experience.
             </p>
-            <p className="mt-2 text-gray-700">
+            <p className="mt-2 text-gray-600">
               Contact us at{" "}
               <a href="mailto:info@addispay.co" className="text-[#239165]  hover:text-[#1e7c57]">
                 info@addispay.co

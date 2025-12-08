@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 
 const SOCIAL_LINKS = [
   {
@@ -47,76 +46,47 @@ const FOOTER_LINKS = [
 function SidebarContent() {
   return (
     <div className="flex flex-col items-center text-center w-full h-full justify-center">
-      <h2 className="mb-3 text-xl font-bold text-gray-900">Developers Community</h2>
-      <p className="mb-8 max-w-xs text-sm text-gray-600">
+      <h2 className="mb-3 text-xl font-bold text-gray-600 dark:text-gray-600">Developers Community</h2>
+      <p className="mb-8 max-w-xs text-sm text-gray-600 dark:text-gray-600">
         Join our vibrant developer channels for support, collaboration, and updates.
       </p>
       <nav className="flex space-x-6 mb-6">
         {SOCIAL_LINKS.map(({ name, href, svg }) => (
-          <a key={name} href={href} target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-[#239165] transition-colors" aria-label={name}>
+          <a key={name} href={href} target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-300 hover:text-[#239165] dark:hover:text-[#239165] transition-colors" aria-label={name}>
             <div className="h-8 w-8">{svg}</div>
           </a>
         ))}
       </nav>
-      <nav className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-gray-400 lg:mt-8">
+      <nav className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-gray-400 dark:text-gray-500 lg:mt-8">
         {FOOTER_LINKS.map(({ label, href }) => (
-          <a key={label} href={href} className="hover:underline hover:text-[#239165]">
+          <a key={label} href={href} className="hover:underline hover:text-[#239165] dark:hover:text-[#239165]">
             {label}
           </a>
         ))}
       </nav>
-      <span className="mt-2 text-xs text-gray-400">© 2025 AddisPay</span>
+      <span className="mt-2 text-xs text-gray-400 dark:text-gray-500">© 2025 AddisPay</span>
     </div>
   );
 }
 
-export default function Footer() {
-  const [showFooter, setShowFooter] = useState(false);
-  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
+interface FooterProps {
+  isMobile: boolean;
+}
 
-  useEffect(() => {
-    const updateDevice = () => {
-      setIsMobileOrTablet(window.innerWidth < 1024);
-    };
-
-    const handleScroll = () => {
-      if (!isMobileOrTablet) return;
-
-      const scrollY = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight;
-      const winHeight = window.innerHeight;
-      const nearBottom = scrollY + winHeight >= docHeight - 100;
-
-      setShowFooter(nearBottom);
-    };
-
-    updateDevice();
-    window.addEventListener("resize", updateDevice);
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("resize", updateDevice);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isMobileOrTablet]);
-
-  return (
-    <>
-      {/* Desktop right sidebar */}
-      <aside className="hidden lg:flex w-64 py-10 px-6 z-30 shrink-0">
-        <SidebarContent />
-      </aside>
-
-      {/* Mobile sliding footer */}
-      <footer
-        className={`fixed bottom-0 left-0 right-0 z-50 flex lg:hidden w-full flex-col items-center  py-6 px-4 pt-8 transform transition-all duration-700 ease-out ${
-          showFooter
-            ? "translate-y-0 opacity-100 pointer-events-auto"
-            : "translate-y-full opacity-0 pointer-events-none"
-        }`}
-      >
+export default function Footer({ isMobile }: FooterProps) {
+  if (isMobile) {
+    // Mobile footer - appears after content in the scroll flow
+    return (
+      <footer className="flex lg:hidden w-full flex-col items-center bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-8 px-4 mt-12">
         <SidebarContent />
       </footer>
-    </>
+    );
+  }
+
+  // Desktop right sidebar - fixed position
+  return (
+    <aside className="hidden lg:flex w-64 py-10 px-6 z-30 shrink-0 border-l border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+      <SidebarContent />
+    </aside>
   );
 }
