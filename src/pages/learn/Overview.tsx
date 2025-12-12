@@ -10,7 +10,7 @@ export default function OverviewGuide() {
             <span className="text-yellow-500 font-black">pay</span>{" "}
             Payment Gateway Integration User Guide
           </h1>
-          <p className="text-base sm:text-lg text-gray-600 italic leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-400 dark:text-gray-500 italic leading-relaxed">
             Welcome to the <strong>Addispay Payment Gateway Integration User Guide</strong>!
             This comprehensive guide is designed to walk you through the process of 
             seamlessly integrating Addispay into your system. By following these steps, 
@@ -20,10 +20,10 @@ export default function OverviewGuide() {
         </header>
 
         <section className="space-y-4">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-800 text-center sm:text-left">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-400 dark:text-gray-300 text-center sm:text-left">
             Overview
           </h2>
-          <p className="text-base sm:text-lg leading-relaxed text-gray-600">
+          <p className="text-base sm:text-lg leading-relaxed text-gray-400 dark:text-gray-500">
             <strong>Addispay</strong> is a robust payment gateway solution that enables businesses 
             to accept online payments hassle-free. Integrating Addispay into your system 
             empowers you to securely process transactions, manage payments, and enhance your 
@@ -32,13 +32,13 @@ export default function OverviewGuide() {
         </section>
 
         <section className="space-y-4">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-800 text-center sm:text-left">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-400 dark:text-gray-300 text-center sm:text-left">
             Prerequisites
           </h2>
-          <p className="text-base sm:text-lg font-semibold text-gray-600">
+          <p className="text-base sm:text-lg  text-gray-400 dark:text-gray-500">
             Before you begin the integration process, ensure you have the following prerequisites in place:
           </p>
-          <ol className="list-decimal list-inside space-y-3 text-base sm:text-lg pl-4 text-gray-600">
+          <ol className="list-decimal list-inside space-y-3 text-base sm:text-lg pl-4 text-gray-400 dark:text-gray-500">
             <li>
               <strong>Access to the Addispay Dashboard or Account:</strong>{" "}
               You'll need login credentials to access your{" "}
@@ -81,7 +81,7 @@ export default function OverviewGuide() {
               changes for Addispay integration. If working in a team, confirm you have push access or 
               collaborate via version control tools like{" "}
               <a
-                href="https://github.com"
+                href="https://github.coxm"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#239165] font-medium italic hover:underline"

@@ -4,6 +4,7 @@ import { codes_DirectApi } from '../../constants/codes';
 
 export default function Api() {
     const [currentLanguage, setCurrentLanguage] = useState('node');
+    const [responseType, setResponseType] = useState('success');
 
     const codeExample = useMemo(() => {
         const selectedCode = codes_DirectApi.find(c => c.language === currentLanguage);
@@ -16,6 +17,20 @@ export default function Api() {
         // Use the second element (index 1) for "Create an order"
         return selectedCode ? selectedCode.content[1] : '';
     }, [currentLanguage]);
+
+    const successResponseExample = useMemo(() => {
+        const selectedCode = codes_DirectApi.find(c => c.language === currentLanguage);
+        // Use the third element (index 2) for "Success Response"
+        return selectedCode ? selectedCode.content[2] : '';
+    }, [currentLanguage]);
+
+    const failureResponseExample = useMemo(() => {
+        const selectedCode = codes_DirectApi.find(c => c.language === currentLanguage);
+        // Use the fourth element (index 3) for "Failure Response"
+        return selectedCode ? selectedCode.content[3] : '';
+    }, [currentLanguage]);
+
+    const currentResponseExample = responseType === 'success' ? successResponseExample : failureResponseExample;
 
     return (
         <div className="shrink-1 max-w-3xl mx-auto p-6 gap-row-8">
@@ -57,6 +72,18 @@ export default function Api() {
                         language={currentLanguage === 'node' ? 'json' : 'python'} 
                         currentLanguage={currentLanguage}
                         onLanguageChange={setCurrentLanguage}
+                    />
+                </div>
+            </div>
+            <div id="response" className='mt-8'>
+                <h1 className="font-bold text-3xl mb-4">Response</h1>
+                <div className='mt-4'>
+                    <CodeBlock 
+                        code={currentResponseExample} 
+                        language={'json'} 
+                        currentLanguage={responseType}
+                        onLanguageChange={setResponseType}
+                        availableLanguages={['success', 'failure']}
                     />
                 </div>
             </div>

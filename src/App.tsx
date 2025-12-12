@@ -12,6 +12,7 @@ import Search from "./pages/Search";
 
 export default function App() {
   return (
+    console.log("App rendred"),
     <Router>
       <Routes> 
         

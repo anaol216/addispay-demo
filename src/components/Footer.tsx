@@ -77,7 +77,7 @@ export default function Footer({ isMobile }: FooterProps) {
   if (isMobile) {
     // Mobile footer - appears after content in the scroll flow
     return (
-      <footer className="flex lg:hidden w-full flex-col items-center bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-8 px-4 mt-12">
+      <footer className="flex lg:hidden w-full flex-col items-center  dark:border-gray-700 py-8 px-4 mt-12">
         <SidebarContent />
       </footer>
     );
@@ -85,7 +85,7 @@ export default function Footer({ isMobile }: FooterProps) {
 
   // Desktop right sidebar - fixed position
   return (
-    <aside className="hidden lg:flex w-64 py-10 px-6 z-30 shrink-0 border-l border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+    <aside className="hidden lg:flex w-64 py-10 px-6 z-30 shrink-0">
       <SidebarContent />
     </aside>
   );

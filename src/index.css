@@ -8,7 +8,7 @@
 @layer base {
   :root {
     --bg-color: #f9fafb;
-    --text-color: #111827;
+    --text-color: #686b70;
     --sidebar-bg: #ffffff;
     --sidebar-border: #e5e7eb;
     --font-family-sans: "Geist", system-ui, -apple-system, BlinkMacSystemFont,
@@ -18,7 +18,7 @@
   /* Manual dark mode override - highest priority */
   :root.dark {
     --bg-color: #111827;
-    --text-color: #f3f4f6;
+    --text-color: #e5e7ea;
     --sidebar-bg: #1f2937;
     --sidebar-border: #374151;
   }
@@ -26,7 +26,7 @@
   /* Manual light mode override - highest priority */
   :root.light {
     --bg-color: #f9fafb;
-    --text-color: #111827;
+    --text-color: #50535a;
     --sidebar-bg: #ffffff;
     --sidebar-border: #e5e7eb;
   }
