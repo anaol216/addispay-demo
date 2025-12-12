@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function OverviewGuide() {
   return (
     <main className="flex flex-col px-4 sm:px-6   lg:pt-14 pb-40 lg:pb-12 transition-all duration-300 ease-in-out">
